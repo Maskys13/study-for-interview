@@ -94,3 +94,42 @@ function newFunc(...args) {
 
 7.ES6类继承
 ```
+### 8.箭头函数和普通函数的区别
+```
+1. 箭头函数没有自己的this,它的this就是外部作用域的this.
+2. 箭头函数不能作为构造函数，没有prototype.
+3. 箭头函数没有arguments对象，可以用rest代替
+4. 箭头函数不能用yield命令，不能用作generator函数
+```
+### 9.迭代器(iterator)接口和生成器(generator)函数的关系
+```
+iterator遍历器是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作。
+Iterator 的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是 ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供for...of消费。
+ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要有Symbol.iterator属性，就可以认为是可遍历的。Symbol.iterator本身是一个函数，默认的遍历器生成函数。执行这个函数就会返回一个遍历器
+generator函数是一种异步编程解决方案，它就像一个状态机，封装了多个内部状态。执行generator函数会返回一个iterator对象，generator函数是一个状态机，也是遍历器生成函数。返回的遍历器对象可以依次遍历函数内部的每一个状态。
+```
+### 10.浏览器的事件循环机制
+<img src='../images/eventloop.png'>
+
+### 11.跨域
+```
+由于浏览器的同源策略（浏览器安全功能，它会阻止一个域与另一个域的内容进行交互，能有效防止XSS、CSRF攻击）的限制、非同源的请求会被限制。协议、域名、端口号
+解决跨域：
+    1. jsonp
+    2. nginx反向代理
+    3. iframe
+    4. WebSocket
+    5. 设置cors
+```
+### 12.浏览器的存储有哪些及区别
+```
+1. cookie: 有时效性，存储小4KB左右，http请求会携带
+2. localStorage: 无时效性，除非手动保存，永久保存，存储大5MB左右
+3. sessionStorage：关闭页面或浏览器会清除
+4. indexDB
+```
+### 13.loader和plugin的区别
+```
+loader: 由于webpack只能打包commonjs规范的文件，因此针对css、图片等格式的文件没法打包，就需要引入第三方模块就行打包。loader扩展了webpack,只专注于文件转换，完成压缩，打包，翻译，仅仅只是为了打包。
+plugin: plugin也是为了扩展webpack的功能，但是plugin是作用于webpack本身的。不局限于打包，资源加载上，解决loader无法实现的其他事。在整个编译周期起作用，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过Webpack提供的 API 改变输出结果。
+```
