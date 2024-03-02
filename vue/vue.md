@@ -88,9 +88,48 @@ watch:
     beforeRouteLeave：1.在导航离开渲染该组件的对应路由时调用
                       2.与 `beforeRouteUpdate` 一样，它可以访问组件实例 `this`
 ```
-### composition Api 对比 option Api的优势
+### 10.composition Api 对比 option Api的优势
 ```
 更好的代码组织
 更好的逻辑复用
 更好的类型推导
+```
+### 11.Vue组件通信方式有哪些
+```
+1.props 父传子
+2.$emit 子传父
+3.ref 子传父
+4.EventBus 兄弟组件通信
+5.$parent或$root 父传子
+6.attrs与listeners 爷孙组件
+7.Provide与Inject 爷孙组件
+8.Vuex 全局共享
+```
+### 12.Vue常用的修饰符有哪些
+```
+1. `.lazy` 在默认情况下，`v-model` 在每次 `input` 事件触发后将输入框的值与数据进行同步 ，可以添加 `lazy` 修饰符，从而转为在 `change` 事件之后进行同步.
+2. `.number` 如果想自动将用户的输入值转为数值类型，可以给 `v-model` 添加 `number` 修饰符.
+3. `.trim` 如果要自动过滤用户输入的首尾空白字符，可以给 `v-model` 添加 `trim` 修饰符.
+4. `.stop` 阻止事件继续传播
+5. `.prevent` 阻止标签的默认行为
+6. `.capture` 事件先在有这个修饰符的节点触发，然后在其包裹的内部节点中触发
+7. `.self` event.target 是当前元素自身时触发处理函数，即事件不是从内部元素触发的
+8. `.once` 当前事件只能触发一次
+9. `.passive` 滚动事件默认行为会立即触发，而不会等待onScroll完成
+```
+### 13.keep-alive,有什么作用
+```
+缓存组件的作用，通过包裹动态组件。
+涉及两个生命周期 activated(激活组件)和deactivated(组件失活)
+include属性表示匹配到才会缓存，exclude表示匹配到的不缓存
+max 表示最多缓存多少组件
+```
+### 14.为什么data属性是一个函数而不是一个对象
+```
+组件化存在复用的情况，直接返回一个对象，为引用类型，则会造成数据污染情况。而且函数内为私有作用域，因此互不影响。
+```
+### 15.vue2的初始化流程
+```
+合并配置 -> 初始化生命周期 -> 初始化事件 -> 初始化渲染 -> 调用beforeCreate钩子->init injections and reactivity（这个阶段属性都已注入绑定，而且被 `$watch` 变成reactivity，但是 `$el` 还是没有生成，也就是DOM没有生成）-> 初始化state状态（data、props、computed、watcher） -> 调用created钩子
+
 ```
