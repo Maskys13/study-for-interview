@@ -40,3 +40,9 @@ JS
 4. 避免频繁读取引起回流的属性，可用一个变量缓存起来
 5. 具有复杂动画的元素使用绝对定位，脱离文档流，否则会引起父元素及后续元素频繁的回流
 ```
+### 2.行内元素有哪些？块级元素有哪些？空(void)元素有哪些？
+```
+行内元素：a, span, i, img, input, select, strong
+块级元素：div, p, h1-h5, ul, li, dl, dt, dd
+空(void)元素： br, hr, img, link, meta, input
+```
