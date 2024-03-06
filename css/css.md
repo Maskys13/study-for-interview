@@ -72,3 +72,17 @@ opacity: 0; 占空间，能触摸到
 ```
 ### 8.css选择器
 <img src='../images/CSS-selector.png'>
+
+### 9.display: inline-block什么时候会显示间隙？
+```
+display-inline-block是让元素在一行显示，但是这些元素在html里面是上下行排列的，所以中间有换行符，于是并排显示就有了换行符带来的空隙。那么如何解决呢？
+方案一：将html标签要display:inline-block 的元素写在一行。缺点：代码可读性差。
+
+方案二：给父元素设置font-size:0,缺点是子元素如果里面有文字，文字会消失不见，所以又要给子元素设置font-size:0,增加了代码量。
+
+方案三：给元素设置float:left,缺点高度塌陷，要清楚浮动。
+
+方案四：设置子元素的margin-left为负值，但是元素之间的间隙大小是根据上下文的字体大小确定的，而每个浏览器的换行空隙大小不同，如果font-szie：16px,chrome空隙为8px,火狐空隙为4px.所以这个方法不通用。
+
+方案五：设置父元素 display:table;word-spacing:-1em;目前这个方法可以完美解决，且兼容其他浏览器。
+```
