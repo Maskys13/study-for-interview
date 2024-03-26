@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .parent {
-      width: 200px;
-      height: 200px;
-      opacity: 0.5;
-      background-color: red;
-      /* background-color: rgba(231, 15, 15, 0.5); */
-      position: relative;
-    }
-    .child {
-      width: 50px;
-      height: 50px;
-      opacity: 1;
-      background-color: orange;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* display: none; */
-      /* visibility: hidden; */
-    }
-    .content {
-      width: 0;
-      height: 0;
-      margin: 0 auto;
-      border: 50px solid transparent;
-      border-top: 50px solid pink;
-    }
-  </style>
-</head>
-<body>
-  <div class="parent">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        width: 200px;
+        height: 200px;
+        opacity: 0.5;
+        background-color: red;
+        /* background-color: rgba(231, 15, 15, 0.5); */
+        position: relative;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+        background-color: orange;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* display: none; */
+        /* visibility: hidden; */
+      }
+      .content {
+        width: 0;
+        height: 0;
+        margin: 0 auto;
+        border: 50px solid transparent;
+        border-top: 50px solid pink;
+      }
+
+      html, body {
+        height: 100%;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 100%;
+      }
+      .center {
+        flex: 1;
+        background-color: red;
+      }
+      .top, .bottom {
+        min-height: 100px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="parent">
     <div class="child"></div>
   </div>
-  <div class="content"></div>
-</body>
+  <div class="content"></div> -->
+
+  <!-- 上中下自适应 -->
+    <div class="box">
+      <div class="top"></div>
+      <div class="center"></div>
+      <div class="bottom"></div>
+    </div>
+  </body>
 </html>

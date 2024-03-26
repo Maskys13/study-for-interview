@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        say: function () {
+          var f1 = () => {
+            console.log('1111', this)
+          }
+          f1()
+        },
+        pro: {
+          getPro: () => {
+            console.log(this)
+          },
+        },
+      }
+      var o = obj.say
+      o()
+      obj.say()
+      obj.pro.getPro()
+
+      // proxy
+      const target = {
+        name: 'lihua',
+        m: function () {
+          console.log(this);
+        }
+      }
+      const handler = {
+        get(target, prop) {
+          console.log(prop);
+          return target.m.bind(target)
+        }
+      }
+
+      const proxy = new Proxy(target, handler)
+
+      // target.m()
+      proxy.m()
+      
+    </script>
+  </body>
+</html>
